@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import emailjs from '@emailjs/browser';
 
-const coverageTypes = ['Home', 'Auto', 'Life', 'Business', 'Flood'];
+const coverageTypes = ['Home', 'Car', 'Life', 'Business', 'Annuities'];
 
 export default function Home() {
   const [formData, setFormData] = useState({
@@ -51,20 +51,9 @@ Automated message from weinsure-miami.com
 
   return (
     <div className="bg-white">
-      <div className="relative h-screen">
-        <div className="absolute inset-0 overflow-hidden">
-          <video
-            className="object-cover w-full h-full"
-            autoPlay
-            loop
-            muted
-            playsInline
-          >
-            <source src="https://weinsuregroup.com/wp-content/uploads/2023/06/WeInsure-Hero-Video-v2.mp4" type="video/mp4" />
-          </video>
-        </div>
-        <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-          <div className="text-center text-white">
+      <div className="relative h-screen flex">
+        <div className="w-1/2 bg-gray-900 flex items-center justify-center p-12">
+          <div className="text-white">
             <h1 className="text-5xl font-bold mb-4">Data-driven for better value.<br/>People-led for better service.</h1>
             <p className="text-xl mb-8">Our insurance is personalized and personal. Great prices and great service in one.</p>
             <Link to="/get-insurance" className="bg-blue-500 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-blue-600 transition duration-300">
@@ -72,26 +61,69 @@ Automated message from weinsure-miami.com
             </Link>
           </div>
         </div>
+        <div className="w-1/2">
+          <div className="aspect-w-16 aspect-h-9 h-full">
+            <iframe 
+              src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+              title="We Insure Miami Video"
+              frameBorder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowFullScreen
+              className="w-full h-full"
+            ></iframe>
+          </div>
+        </div>
       </div>
 
       <div className="py-16 bg-gray-100">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12">Every coverage type for every type of customer</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">
+          <div className="flex justify-center space-x-8">
             {coverageTypes.map((type, index) => (
-              <div key={index} className="bg-white p-6 rounded-lg shadow-md text-center">
-                <img src={`/placeholder.svg?height=100&width=100&text=${type}`} alt={type} className="mx-auto mb-4 w-24 h-24" />
-                <h3 className="text-xl font-semibold mb-4">{type} Insurance</h3>
-                <a href="#quote-form" className="bg-blue-500 text-white px-4 py-2 rounded inline-block hover:bg-blue-600 transition duration-300">
-                  Get a Quote
-                </a>
+              <a key={index} href={`#${type.toLowerCase()}`} className="text-center">
+                <div className="w-20 h-20 bg-blue-500 rounded-full flex items-center justify-center mb-2">
+                  <span className="text-white text-2xl">{type[0]}</span>
+                </div>
+                <span className="text-sm font-semibold">{type}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {coverageTypes.map((type, index) => (
+        <div id={type.toLowerCase()} key={index} className="py-24 bg-cover bg-center" style={{backgroundImage: `url(/placeholder.svg?height=400&width=1200&text=${type})`}}>
+          <div className="container mx-auto px-4">
+            <div className="bg-white bg-opacity-90 p-12 rounded-lg shadow-lg max-w-2xl">
+              <h3 className="text-4xl font-bold mb-4">{type} Insurance</h3>
+              <p className="text-lg mb-6">Protect what matters most with our comprehensive {type.toLowerCase()} insurance coverage.</p>
+              <a href="#quote-form" className="bg-blue-500 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-blue-600 transition duration-300">
+                Get a Quote
+              </a>
+            </div>
+          </div>
+        </div>
+      ))}
+
+      <div className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-12">Latest Tips</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[1, 2, 3].map((item) => (
+              <div key={item} className="bg-gray-100 rounded-lg overflow-hidden shadow-md">
+                <img src={`/placeholder.svg?height=200&width=400&text=News ${item}`} alt={`News ${item}`} className="w-full h-48 object-cover" />
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold mb-2">Insurance Tip {item}</h3>
+                  <p className="text-gray-600 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  <Link to="/news-resources" className="text-blue-500 font-semibold hover:underline">Read More</Link>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </div>
 
-      <div id="quote-form" className="py-16 bg-white">
+      <div id="quote-form" className="py-16 bg-gray-100">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-8">Request a Quote</h2>
           <form onSubmit={handleSubmit} className="max-w-md mx-auto">
