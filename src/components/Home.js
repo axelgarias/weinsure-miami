@@ -51,25 +51,23 @@ Automated message from weinsure-miami.com
 
   return (
     <div className="bg-white">
-      <div className="relative h-screen flex">
-        <div className="w-1/2 bg-gray-900 flex items-center justify-center p-12">
-          <div className="text-white">
-            <h1 className="text-5xl font-bold mb-4">Data-driven for better value.<br/>People-led for better service.</h1>
-            <p className="text-xl mb-8">Our insurance is personalized and personal. Great prices and great service in one.</p>
-            <Link to="/get-insurance" className="bg-blue-500 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-blue-600 transition duration-300">
-              Get a quote
-            </Link>
-          </div>
+      <div className="relative min-h-screen flex flex-col md:flex-row items-center justify-center p-4 md:p-12">
+        <div className="w-full md:w-1/2 text-center md:text-left mb-8 md:mb-0">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">Data-driven for better value.<br/>People-led for better service.</h1>
+          <p className="text-xl mb-8">Our insurance is personalized and personal. Great prices and great service in one.</p>
+          <Link to="/get-insurance" className="bg-blue-500 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-blue-600 transition duration-300">
+            Get a quote
+          </Link>
         </div>
-        <div className="w-1/2">
-          <div className="aspect-w-16 aspect-h-9 h-full">
+        <div className="w-full md:w-1/2 flex justify-center items-center">
+          <div className="w-full max-w-md aspect-w-16 aspect-h-9">
             <iframe 
               src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
               title="We Insure Miami Video"
               frameBorder="0" 
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
               allowFullScreen
-              className="w-full h-full"
+              className="w-full h-full rounded-lg shadow-lg"
             ></iframe>
           </div>
         </div>
@@ -78,11 +76,11 @@ Automated message from weinsure-miami.com
       <div className="py-16 bg-gray-100">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12">Every coverage type for every type of customer</h2>
-          <div className="flex justify-center space-x-8">
+          <div className="flex flex-wrap justify-center space-x-4 md:space-x-8">
             {coverageTypes.map((type, index) => (
-              <a key={index} href={`#${type.toLowerCase()}`} className="text-center">
-                <div className="w-20 h-20 bg-blue-500 rounded-full flex items-center justify-center mb-2">
-                  <span className="text-white text-2xl">{type[0]}</span>
+              <a key={index} href={`#${type.toLowerCase()}`} className="text-center mb-4">
+                <div className="w-16 h-16 md:w-20 md:h-20 bg-blue-500 rounded-full flex items-center justify-center mb-2">
+                  <img src={`https://via.placeholder.com/80?text=${type[0]}`} alt={type} className="w-8 h-8 md:w-10 md:h-10" />
                 </div>
                 <span className="text-sm font-semibold">{type}</span>
               </a>
@@ -92,9 +90,9 @@ Automated message from weinsure-miami.com
       </div>
 
       {coverageTypes.map((type, index) => (
-        <div id={type.toLowerCase()} key={index} className="py-24 bg-cover bg-center" style={{backgroundImage: `url(/placeholder.svg?height=400&width=1200&text=${type})`}}>
+        <div id={type.toLowerCase()} key={index} className="py-24 bg-cover bg-center flex items-center" style={{backgroundImage: `url(https://source.unsplash.com/800x400/?${type.toLowerCase()},insurance)`}}>
           <div className="container mx-auto px-4">
-            <div className="bg-white bg-opacity-90 p-12 rounded-lg shadow-lg max-w-2xl">
+            <div className="bg-white bg-opacity-90 p-12 rounded-lg shadow-lg max-w-2xl mx-auto">
               <h3 className="text-4xl font-bold mb-4">{type} Insurance</h3>
               <p className="text-lg mb-6">Protect what matters most with our comprehensive {type.toLowerCase()} insurance coverage.</p>
               <a href="#quote-form" className="bg-blue-500 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-blue-600 transition duration-300">
@@ -111,7 +109,7 @@ Automated message from weinsure-miami.com
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[1, 2, 3].map((item) => (
               <div key={item} className="bg-gray-100 rounded-lg overflow-hidden shadow-md">
-                <img src={`/placeholder.svg?height=200&width=400&text=News ${item}`} alt={`News ${item}`} className="w-full h-48 object-cover" />
+                <img src={`https://source.unsplash.com/400x200/?insurance,tip${item}`} alt={`Insurance Tip ${item}`} className="w-full h-48 object-cover" />
                 <div className="p-6">
                   <h3 className="text-xl font-semibold mb-2">Insurance Tip {item}</h3>
                   <p className="text-gray-600 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
