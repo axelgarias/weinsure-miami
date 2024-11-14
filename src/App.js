@@ -9,7 +9,7 @@ import Payment from './components/Payment';
 
 function App() {
   return (
-    <Router>
+    <Router basename="/weinsure-miami">
       <div className="App">
         <Navbar />
         <Routes>
