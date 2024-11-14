@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/weinsure-miami/static/css/main.d9541ef0.css",
+    "main.js": "/weinsure-miami/static/js/main.80e04e6e.js",
+    "static/js/453.5f02a146.chunk.js": "/weinsure-miami/static/js/453.5f02a146.chunk.js",
+    "index.html": "/weinsure-miami/index.html",
+    "main.d9541ef0.css.map": "/weinsure-miami/static/css/main.d9541ef0.css.map",
+    "main.80e04e6e.js.map": "/weinsure-miami/static/js/main.80e04e6e.js.map",
+    "453.5f02a146.chunk.js.map": "/weinsure-miami/static/js/453.5f02a146.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d9541ef0.css",
+    "static/js/main.80e04e6e.js"
+  ]
+}
